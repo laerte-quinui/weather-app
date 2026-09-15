@@ -2,6 +2,7 @@ import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import Providers from "./providers";
 
 const dmSans = localFont({
   src: [
@@ -63,7 +64,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         bricolageGrotesque.variable,
       )}
     >
-      <body className="flex min-h-full flex-col">{children}</body>
+      <body className="flex min-h-full flex-col">
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 }
