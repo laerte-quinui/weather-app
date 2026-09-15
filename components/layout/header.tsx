@@ -26,8 +26,14 @@ import {
 
 const Header = () => {
   return (
-    <header className="flex w-full items-center justify-between gap-4">
-      <Image src={Logo} alt="Weather App Logo" height={40} loading="eager" />
+    <header className="mb-10 flex w-full items-center justify-between gap-4">
+      <Image
+        src={Logo}
+        alt="Weather App Logo"
+        height={40}
+        className="h-6 w-fit md:h-10"
+        loading="eager"
+      />
 
       <UnitsDropdown />
     </header>
