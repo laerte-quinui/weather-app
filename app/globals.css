@@ -1,4 +1,8 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
 
 :root {
   /* Neutral Colors */
@@ -16,6 +20,9 @@
   /* Secondary Color */
   --blue-500: hsl(233, 67%, 56%);
   --blue-700: hsl(248, 70%, 36%);
+
+  /* Shadcn Sizes */
+  --radius: 0.625rem;
 }
 
 @theme inline {
@@ -35,15 +42,43 @@
   --color-blue-500: var(--blue-500);
   --color-blue-700: var(--blue-700);
 
+  /* Global Utils */
   --color-background: var(--neutral-900);
   --color-foreground: var(--neutral-0);
 
+  /* Fonts */
   --font-sans:
     var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-heading:
     var(--font-bricolage-grotesque), ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+  /* Shadcn Size */
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading;
+  }
 }
 
 /* @media (prefers-color-scheme: dark) {
@@ -53,8 +88,7 @@
   }
 } */
 
-body {
-  background: var(--neutral-900);
-  color: var(--neutral-0);
-  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
-}
+/* .dark {
+  --background: var(--neutral-900);
+  --foreground: var(--neutral-0);
+} */
