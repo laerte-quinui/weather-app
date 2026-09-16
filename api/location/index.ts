@@ -1,4 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, UseQueryOptions } from "@tanstack/react-query";
 import { geocoding } from "../instances";
 import { LocationError, LocationResponse } from "./types";
 
@@ -31,8 +31,15 @@ const getLocation = (location?: string): Promise<LocationResponse> => {
  * @param location - The name for the location.
  * @returns An object containing the query result, loading state, and error state.
  */
-export const useGetLocation = (location?: string) =>
-  useQuery<LocationResponse, LocationError>({
+export const useGetLocation = (
+  location?: string,
+  options?: Omit<
+    UseQueryOptions<LocationResponse, LocationError>,
+    "queryKey" | "queryFn"
+  >,
+) =>
+  useQuery({
     queryKey: ["location", location],
     queryFn: () => getLocation(location),
+    ...options,
   });
