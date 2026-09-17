@@ -1,4 +1,4 @@
 export type GlobalUnit = "metric" | "imperial";
 export type TemperatureUnit = "celsius" | "fahrenheit";
-export type WindSpeedUnit = "km/h" | "mph";
-export type PrecipitationUnit = "mm" | "in";
+export type WindSpeedUnit = "kmh" | "mph";
+export type PrecipitationUnit = "mm" | "inch";

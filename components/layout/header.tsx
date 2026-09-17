@@ -43,7 +43,7 @@ const Header = () => {
 const UnitsDropdown = () => {
   const [globalUnit, setGlobalUnit] = useState<GlobalUnit>("metric");
   const [temperature, setTemperature] = useState<TemperatureUnit>("celsius");
-  const [windSpeed, setWindSpeed] = useState<WindSpeedUnit>("km/h");
+  const [windSpeed, setWindSpeed] = useState<WindSpeedUnit>("kmh");
   const [precipitation, setPrecipitation] = useState<PrecipitationUnit>("mm");
 
   const handleGlobalUnitChange = () => {
@@ -51,11 +51,11 @@ const UnitsDropdown = () => {
       setGlobalUnit("imperial");
       setTemperature("fahrenheit");
       setWindSpeed("mph");
-      setPrecipitation("in");
+      setPrecipitation("inch");
     } else {
       setGlobalUnit("metric");
       setTemperature("celsius");
-      setWindSpeed("km/h");
+      setWindSpeed("kmh");
       setPrecipitation("mm");
     }
   };
@@ -73,7 +73,7 @@ const UnitsDropdown = () => {
     {
       label: "Wind Speed",
       items: [
-        { value: "km/h", label: "km/h" },
+        { value: "kmh", label: "km/h" },
         { value: "mph", label: "mph" },
       ],
       value: windSpeed,
@@ -83,7 +83,7 @@ const UnitsDropdown = () => {
       label: "Precipitation",
       items: [
         { value: "mm", label: "Millimeters (mm)" },
-        { value: "in", label: "Inches (in)" },
+        { value: "inch", label: "Inches (in)" },
       ],
       value: precipitation,
       onChange: setPrecipitation,
