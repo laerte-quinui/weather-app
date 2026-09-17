@@ -1,7 +1,6 @@
 "use client";
 
-import { useGetLocation } from "@/api/location";
-import { Location } from "@/api/location/types";
+import { type Location, useGetLocation } from "@/api/location";
 import { debounce } from "@/utils";
 import { LoaderIcon, Search02Icon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
