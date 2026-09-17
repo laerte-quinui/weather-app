@@ -7,3 +7,7 @@ export const geocoding = axios.create({
 export const ipApi = axios.create({
   baseURL: "https://free.freeipapi.com/api/v1/json",
 });
+
+export const forecast = axios.create({
+  baseURL: "https://api.open-meteo.com/v1/forecast",
+});
