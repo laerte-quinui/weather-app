@@ -1,5 +1,5 @@
-import { geocoding } from "../instances";
-import { LocationResponse } from "./types";
+import { geocoding, ipApi } from "../instances";
+import { CurrentLocation, LocationResponse } from "./types";
 
 /**
  * Fetches location data based on a search query.
@@ -23,4 +23,14 @@ export const getLocation = (location?: string): Promise<LocationResponse> => {
     .then((response) => {
       return response.data;
     });
+};
+
+/**
+ * Fetches the current location based on the user's IP address.
+ * @returns A promise that resolves to the current location data.
+ */
+export const getCurrentLocation = (): Promise<CurrentLocation> => {
+  return ipApi.get("").then((response) => {
+    return response.data;
+  });
 };

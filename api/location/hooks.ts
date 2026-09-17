@@ -1,6 +1,7 @@
-import { useQuery, UseQueryOptions } from "@tanstack/react-query";
-import { getLocation } from "./queries";
-import { LocationError, LocationResponse } from "./types";
+import { QueryOptions } from "@/types/query";
+import { useQuery } from "@tanstack/react-query";
+import { getCurrentLocation, getLocation } from "./queries";
+import { CurrentLocation, LocationError, LocationResponse } from "./types";
 
 /**
  * Custom hook to fetch location data using React Query.
@@ -9,13 +10,24 @@ import { LocationError, LocationResponse } from "./types";
  */
 export const useGetLocation = (
   location?: string,
-  options?: Omit<
-    UseQueryOptions<LocationResponse, LocationError>,
-    "queryKey" | "queryFn"
-  >,
+  options?: QueryOptions<LocationResponse, LocationError>,
 ) =>
   useQuery({
     queryKey: ["location", location],
     queryFn: () => getLocation(location),
+    ...options,
+  });
+
+/**
+ * Custom hook to fetch the current location based on the user's IP address using React Query.
+ * @returns An object containing the query result, loading state, and error state.
+ */
+export const useGetCurrentLocation = (
+  options?: QueryOptions<CurrentLocation, unknown>,
+) =>
+  useQuery({
+    queryKey: ["current-location"],
+    queryFn: () => getCurrentLocation(),
+    staleTime: 1000 * 60 * 60, // 1 hour
     ...options,
   });

@@ -1,3 +1,4 @@
+/* -- SEARCHED LOCATION -- */
 export interface Location {
   id: number;
   name: string;
@@ -29,4 +30,28 @@ export interface LocationResponse {
 export interface LocationError {
   error: boolean;
   reason: string;
+}
+
+/* -- CURRENT LOCATION -- */
+export interface CurrentLocation {
+  ipVersion: number;
+  ipAddress: string;
+  latitude: number;
+  longitude: number;
+  countryName: string;
+  countryCode: string;
+  capital: string;
+  phoneCodes: Array<number>;
+  timeZones: Array<string>;
+  zipCode: string;
+  cityName: string;
+  regionName: string;
+  regionCode: string;
+  continent: string;
+  continentCode: string;
+  currencies: Array<string>;
+  languages: Array<string>;
+  asn: string;
+  asnOrganization: string;
+  isProxy: boolean;
 }
