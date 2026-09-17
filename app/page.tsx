@@ -1,4 +1,11 @@
-import { Header, Search } from "@/components/layout";
+import {
+  DailyForecast,
+  Header,
+  HourlyForecast,
+  Search,
+  TodayCard,
+  TodayDetails,
+} from "@/components/layout";
 
 export default function Home() {
   return (
@@ -11,6 +18,21 @@ export default function Home() {
         </h1>
 
         <Search />
+
+        {/* Main Content */}
+        <div className="mt-10 grid h-full flex-1 grid-cols-1 gap-6 md:grid-cols-6">
+          {/* Left Column */}
+          <section className="col-span-1 flex h-full flex-col gap-6 md:col-span-4">
+            <TodayCard />
+            <TodayDetails />
+            <DailyForecast />
+          </section>
+
+          {/* Right Column */}
+          <section className="col-span-1 flex h-full flex-col gap-6 md:col-span-2">
+            <HourlyForecast />
+          </section>
+        </div>
       </main>
     </div>
   );
