@@ -8,6 +8,7 @@ import { Coordinates } from "@/types";
 import { formatTemperature, formatWeatherCode, getCurrentDate } from "@/utils";
 import { HugeiconsIcon } from "@hugeicons/react";
 import Image from "next/image";
+import { Tooltip, TooltipContent, TooltipTrigger } from "../ui";
 
 const TodayCard = ({ coord }: { coord: Coordinates }) => {
   const { data: userLocation } = useGetCurrentLocation();
@@ -32,12 +33,19 @@ const TodayCard = ({ coord }: { coord: Coordinates }) => {
 
       {/* Weather */}
       <div className="z-1 flex h-fit items-center gap-4">
-        <div className="flex items-center justify-center rounded-2xl bg-neutral-0 p-2">
-          <HugeiconsIcon
-            icon={weatherCode.icon}
-            className="size-12 text-neutral-900 md:size-14"
-          />
-        </div>
+        <Tooltip>
+          <TooltipTrigger>
+            <div className="flex items-center justify-center rounded-2xl bg-neutral-200 p-2 shadow-lg shadow-transparent transition hover:shadow-neutral-300/50">
+              <HugeiconsIcon
+                icon={weatherCode.icon}
+                className="size-12 text-neutral-800 md:size-14"
+              />
+            </div>
+          </TooltipTrigger>
+          <TooltipContent sideOffset={8}>
+            <p>{weatherCode.description}</p>
+          </TooltipContent>
+        </Tooltip>
 
         <p className="text-6xl font-semibold italic lg:text-8xl">
           {formatTemperature(forecast?.temperature_2m)}
