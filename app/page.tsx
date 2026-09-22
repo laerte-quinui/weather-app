@@ -45,7 +45,7 @@ export default async function Home() {
           {/* Left Column */}
           <section className="col-span-1 flex h-full flex-col gap-6 md:col-span-4">
             <TodayCard coord={currCoord} />
-            <TodayDetails />
+            <TodayDetails coord={currCoord} />
             <DailyForecast />
           </section>
 
