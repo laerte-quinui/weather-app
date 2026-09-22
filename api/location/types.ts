@@ -1,3 +1,5 @@
+import { Coordinates } from "@/types";
+
 /* -- SEARCHED LOCATION -- */
 export interface Location {
   id: number;
@@ -36,8 +38,8 @@ export interface LocationError {
 export interface CurrentLocation {
   ipVersion: number;
   ipAddress: string;
-  latitude: number;
-  longitude: number;
+  latitude: Coordinates["latitude"];
+  longitude: Coordinates["longitude"];
   countryName: string;
   countryCode: string;
   capital: string;

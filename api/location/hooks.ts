@@ -1,4 +1,4 @@
-import { QueryOptions } from "@/types/query";
+import { QueryOptions } from "@/types";
 import { useQuery } from "@tanstack/react-query";
 import { getCurrentLocation, getLocation } from "./queries";
 import { CurrentLocation, LocationError, LocationResponse } from "./types";
