@@ -8,3 +8,4 @@ export * from "./label";
 export * from "./separator";
 export * from "./textarea";
 export * from "./tooltip";
+export * from "./weather-badge";
